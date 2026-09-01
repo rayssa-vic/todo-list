@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #F9DCE7;
+  color: #1A1013;
+}
+
+.task-check {
+  transition: transform 0.15s ease;
+}
+
+.task-check:active {
+  transform: scale(0.85);
+}
+
+.strike {
+  position: relative;
+}
+
+.strike::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 52%;
+  width: 100%;
+  height: 2px;
+  background: #1A1013;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: strike-in 0.25s ease forwards;
+}
+
+@keyframes strike-in {
+  to { transform: scaleX(1); }
+}
